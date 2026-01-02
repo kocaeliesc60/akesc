@@ -28,8 +28,6 @@ Farklı ilçe ve bölgelerde sunulan VIP, yabancı ve elit profil seçenekleri, 
 <meta name="author" content="Kocaeli Escort"content=" izmit escort"content="sakarya-kocaeli"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ff8600" />
-    <meta http-equiv="refresh" content="300">
-
 <link rel="icon" href="favicon/seytan1.png" />
 <link rel="apple-touch-icon" href="favicon/seytan1152.png" />
 <link rel="preconnect" href="http://cdn.ampproject.org/">
@@ -39,11 +37,6 @@ Farklı ilçe ve bölgelerde sunulan VIP, yabancı ve elit profil seçenekleri, 
 <script custom-element="amp-fit-text" src="../cdn.ampproject.org/v0/amp-fit-text-latest.js" async></script>
 <link rel='stylesheet' id='font-awesome-css' href='../maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' type='text/css' media='all' />
 
-<script async custom-element="amp-date-display"
-  src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
-
-<script async custom-template="amp-mustache"
-  src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 
 <script custom-element=amp-carousel async src='../cdn.ampproject.org/v0/amp-carousel-0.2.js' id='amp-carousel-js'></script>
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -452,15 +445,35 @@ Farklı ilçe ve bölgelerde sunulan VIP, yabancı ve elit profil seçenekleri, 
     </p>
 
   </div>
-  <p style="margin-top:10px;font-size:13px;opacity:.95;">
-  Güncel Tarih & Saat:
-  <strong>
-    <?php
-      date_default_timezone_set('Europe/Istanbul');
-      echo date('d.m.Y H:i');
-    ?>
-  </strong>
+ <p style="margin-top:10px;font-size:13px;opacity:.95;">
+ 
+  <span id="liveDateTime">--</span>
+  &nbsp;|&nbsp;
+  ID:
+  <strong><span id="liveRand">----</span></strong>
 </p>
+<script>
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  function updateFooterClock(){
+    const now = new Date();
+    const dateTime =
+      pad(now.getDate()) + '.' + pad(now.getMonth()+1) + '.' + now.getFullYear() + ' ' +
+      pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+
+    document.getElementById('liveDateTime').textContent = dateTime;
+  }
+
+  function updateRandom(){
+    const rand = Math.floor(1000 + Math.random() * 9000); // 4 haneli
+    document.getElementById('liveRand').textContent = rand;
+  }
+
+  // İlk basış
+  updateFooterClock();
+  updateRandom();
+
+</script>
 
 
 
