@@ -28,6 +28,8 @@ Farklı ilçe ve bölgelerde sunulan VIP, yabancı ve elit profil seçenekleri, 
 <meta name="author" content="Kocaeli Escort"content=" izmit escort"content="sakarya-kocaeli"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ff8600" />
+    <meta http-equiv="refresh" content="300">
+
 <link rel="icon" href="favicon/seytan1.png" />
 <link rel="apple-touch-icon" href="favicon/seytan1152.png" />
 <link rel="preconnect" href="http://cdn.ampproject.org/">
@@ -452,32 +454,14 @@ Farklı ilçe ve bölgelerde sunulan VIP, yabancı ve elit profil seçenekleri, 
   </div>
   <p style="margin-top:10px;font-size:13px;opacity:.95;">
   Güncel Tarih & Saat:
-  <amp-script layout="fixed-height" height="20" script="clock-script">
-    <span id="clock">Yükleniyor…</span>
-  </amp-script>
+  <strong>
+    <?php
+      date_default_timezone_set('Europe/Istanbul');
+      echo date('d.m.Y H:i');
+    ?>
+  </strong>
 </p>
 
-<script id="clock-script" type="text/plain">
-  (function () {
-    function pad(n){ return (n < 10 ? '0' : '') + n; }
-
-    function formatTR(d){
-      var days = ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
-      var months = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
-      return days[d.getDay()] + ", " +
-        d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear() +
-        " – " + pad(d.getHours()) + ":" + pad(d.getMinutes());
-    }
-
-    function tick(){
-      var el = document.getElementById("clock");
-      if (el) el.textContent = formatTR(new Date());
-    }
-
-    tick();
-    setInterval(tick, 300000); // 5 dakika
-  })();
-</script>
 
 
 </footer>
