@@ -650,6 +650,323 @@ main .row{
 
 <!-- VİTRİN BİTİŞİ -->
 
+<!-- ===================== VİTRİN BAŞLANGICI ===================== -->
+<style amp-custom>
+  /* Alt vitrin - nötr vitrin kart tasarımı (AMP uyumlu) */
+  .vitrinWrap{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:8px 10px 14px;
+    box-sizing:border-box;
+  }
+
+  .vitrinHead{
+    margin:8px 0 10px;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+  }
+  .vitrinCta{
+    background:linear-gradient(180deg,#0b0b0b,#1a1a1a);
+    color:#fff;
+    font-weight:900;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    text-align:center;
+    padding:12px 10px;
+    border-bottom:2px solid rgba(255,255,255,.08);
+  }
+  .vitrinTitle{
+    background:linear-gradient(180deg,#0b0b0b,#141414);
+    color:#d7b56d;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    text-align:center;
+    padding:12px 10px;
+    font-size:28px;
+    text-shadow:0 2px 0 rgba(0,0,0,.6);
+  }
+
+  .vCard{
+    width:100%;
+    border-radius:14px;
+    overflow:hidden;
+    margin:10px 0;
+    background:rgba(0,0,0,.20);
+    box-shadow:0 8px 22px rgba(0,0,0,.28);
+    border:1px solid rgba(255,255,255,.08);
+  }
+
+  .vRow{
+    display:flex;
+    gap:0;
+    width:100%;
+  }
+
+  /* Sol bilgi paneli */
+  .vLeft{
+    width:40%;
+    min-width:40%;
+    background:
+      linear-gradient(90deg, rgba(255,0,150,.85), rgba(255,0,150,.38)),
+      radial-gradient(circle at 25% 20%, rgba(255,255,255,.12), transparent 55%),
+      #111;
+    color:#fff;
+    padding:14px 12px;
+    box-sizing:border-box;
+  }
+  .vName{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:.5px;
+    margin:0 0 10px;
+    text-transform:uppercase;
+    text-shadow:0 2px 0 rgba(0,0,0,.35);
+  }
+  .vList{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    font-weight:800;
+    font-size:14px;
+    line-height:1.15;
+  }
+  .vList li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-shadow:0 1px 0 rgba(0,0,0,.45);
+  }
+  .vIco{
+    width:18px;
+    display:inline-flex;
+    justify-content:center;
+  }
+
+  .vAction{
+    margin-top:12px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:12px;
+    background:rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.14);
+    font-weight:900;
+    font-size:12px;
+    text-transform:uppercase;
+  }
+  .vAction .dot{
+    width:10px;height:10px;border-radius:50%;
+    background:#25D366;
+    box-shadow:0 0 0 4px rgba(37,211,102,.18);
+  }
+
+  /* Sağ görsel alanı */
+  .vRight{
+    width:60%;
+    min-width:60%;
+    position:relative;
+    background:#0b0b0b;
+  }
+
+  /* Carousel: 4 küçük görsel, swipe ile kayar */
+  .vCar{
+    width:100%;
+    height:100%;
+  }
+  .vThumb{
+    position:relative;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+  }
+  .vThumb amp-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  /* Sağ alt rozet */
+  .vBadge{
+    position:absolute;
+    right:10px;
+    bottom:10px;
+    padding:7px 12px;
+    border-radius:999px;
+    font-weight:900;
+    font-size:12px;
+    color:#fff;
+    background:linear-gradient(90deg,#b100ff,#ff2fb2);
+    box-shadow:0 6px 14px rgba(0,0,0,.35);
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    pointer-events:none;
+  }
+
+  /* Kart içi tıklama */
+  .vLink{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+  }
+
+  /* Mobil oranlar */
+  @media (max-width:480px){
+    .vitrinTitle{font-size:26px;}
+    .vLeft{width:44%;min-width:44%;}
+    .vRight{width:56%;min-width:56%;}
+    .vName{font-size:20px;}
+    .vList{font-size:13px;}
+  }
+</style>
+
+<section class="vitrinWrap">
+  <div class="vitrinHead">
+    <div class="vitrinCta">VİTRİN İLANI VERMEK İÇİN TIKLAYIN</div>
+    <div class="vitrinTitle">VİP VİTRİN</div>
+  </div>
+
+  <!-- KART 1 -->
+  <div class="vCard">
+    <a class="vLink" href="/incele-25322.html" target="_blank" rel="nofollow">
+      <div class="vRow">
+        <div class="vLeft">
+          <div class="vName">İLAN BAŞLIĞI 1</div>
+          <ul class="vList">
+            <li><span class="vIco">❤</span> Özellik 1</li>
+            <li><span class="vIco">★</span> Özellik 2</li>
+            <li><span class="vIco">🏠</span> Konum/Tip</li>
+            <li><span class="vIco">📱</span> Detay için tıkla</li>
+          </ul>
+          <div class="vAction"><span class="dot"></span> İletişim</div>
+        </div>
+
+        <div class="vRight">
+          <amp-carousel class="vCar"
+            type="carousel"
+            height="210"
+            layout="fixed-height"
+            controls
+            loop
+            snap
+            aria-label="Vitrin görselleri">
+            <div class="vThumb">
+              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                width="400" height="400" layout="responsive" alt="Görsel 1"></amp-img>
+            </div>
+            <div class="vThumb">
+              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                width="400" height="400" layout="responsive" alt="Görsel 2"></amp-img>
+            </div>
+            <div class="vThumb">
+              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                width="400" height="400" layout="responsive" alt="Görsel 3"></amp-img>
+            </div>
+            <div class="vThumb">
+              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                width="400" height="400" layout="responsive" alt="Görsel 4"></amp-img>
+            </div>
+          </amp-carousel>
+          <div class="vBadge">BÖLGE 1</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- KART 2 -->
+  <div class="vCard">
+    <a class="vLink" href="/incele-25323.html" target="_blank" rel="nofollow">
+      <div class="vRow">
+        <div class="vLeft">
+          <div class="vName">İLAN BAŞLIĞI 2</div>
+          <ul class="vList">
+            <li><span class="vIco">❤</span> Özellik 1</li>
+            <li><span class="vIco">★</span> Özellik 2</li>
+            <li><span class="vIco">🏨</span> Konum/Tip</li>
+            <li><span class="vIco">📱</span> Detay için tıkla</li>
+          </ul>
+          <div class="vAction"><span class="dot"></span> İletişim</div>
+        </div>
+
+        <div class="vRight">
+          <amp-carousel class="vCar"
+            type="carousel"
+            height="210"
+            layout="fixed-height"
+            controls
+            loop
+            snap
+            aria-label="Vitrin görselleri">
+            <div class="vThumb">
+              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                width="400" height="400" layout="responsive" alt="Görsel 1"></amp-img>
+            </div>
+            <div class="vThumb">
+              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                width="400" height="400" layout="responsive" alt="Görsel 2"></amp-img>
+            </div>
+            <div class="vThumb">
+              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                width="400" height="400" layout="responsive" alt="Görsel 3"></amp-img>
+            </div>
+          </amp-carousel>
+          <div class="vBadge">BÖLGE 2</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- KART 3 -->
+  <div class="vCard">
+    <a class="vLink" href="/incele-25324.html" target="_blank" rel="nofollow">
+      <div class="vRow">
+        <div class="vLeft">
+          <div class="vName">İLAN BAŞLIĞI 3</div>
+          <ul class="vList">
+            <li><span class="vIco">❤</span> Özellik 1</li>
+            <li><span class="vIco">★</span> Özellik 2</li>
+            <li><span class="vIco">📌</span> Konum/Tip</li>
+            <li><span class="vIco">📱</span> Detay için tıkla</li>
+          </ul>
+          <div class="vAction"><span class="dot"></span> İletişim</div>
+        </div>
+
+        <div class="vRight">
+          <amp-carousel class="vCar"
+            type="carousel"
+            height="210"
+            layout="fixed-height"
+            controls
+            loop
+            snap
+            aria-label="Vitrin görselleri">
+            <div class="vThumb">
+              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                width="400" height="400" layout="responsive" alt="Görsel 1"></amp-img>
+            </div>
+            <div class="vThumb">
+              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                width="400" height="400" layout="responsive" alt="Görsel 2"></amp-img>
+            </div>
+            <div class="vThumb">
+              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                width="400" height="400" layout="responsive" alt="Görsel 3"></amp-img>
+            </div>
+          </amp-carousel>
+          <div class="vBadge">BÖLGE 3</div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+</section>
+<!-- ===================== VİTRİN BİTİŞİ ===================== -->
 
 
 
