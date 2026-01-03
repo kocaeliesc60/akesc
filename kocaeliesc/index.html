@@ -772,8 +772,8 @@ main .row{
     width:60%;
     min-width:60%;
     position:relative;
-    background:#0b0b0b;
-    overflow:hidden; /* stabil */
+    overflow:hidden;
+    background:transparent; /* siyahlık istemiyorsun */
   }
 
   /* === Carousel stabil kutu === */
@@ -785,6 +785,12 @@ main .row{
   .vCar{
     position:absolute;
     inset:0;
+    background:transparent;
+  }
+
+  /* AMP slide arka planlarını da şeffaf yap */
+  .vCar .amp-carousel-slide{
+    background:transparent;
   }
 
   .vThumb{
@@ -792,42 +798,47 @@ main .row{
     width:100%;
     height:100%;
     overflow:hidden;
-    background:#000;
-  }
-  .vThumb amp-img{
-    object-fit:cover;
+    background:transparent; /* siyahlık kaldır */
   }
 
-  /* OKLARI KÜÇÜLT */
+  /* Görseli tamamen sığdır (kırpma yok), kalite düşmez */
+  .vThumb amp-img img{
+    object-fit:contain;
+  }
+
+  /* OKLARI DAHA KÜÇÜK */
   .vCar .amp-carousel-button{
-    width:26px;
-    height:26px;
-    min-width:26px;
-    min-height:26px;
+    width:24px;
+    height:24px;
+    min-width:24px;
+    min-height:24px;
     border-radius:999px;
     opacity:.75;
-    background-color:rgba(0,0,0,.35);
-    box-shadow:0 6px 14px rgba(0,0,0,.25);
+    background-color:rgba(0,0,0,.25);
+    box-shadow:0 6px 14px rgba(0,0,0,.20);
   }
   .vCar .amp-carousel-button:hover{ opacity:1; }
   .vCar .amp-carousel-button-next,
   .vCar .amp-carousel-button-prev{
-    background-size:10px 10px;
+    background-size:9px 9px;
   }
 
   /* NOKTALAR (GÖSTERGE) */
   .vCar .amp-carousel-indicators{
     position:absolute;
-    left:0;
-    right:0;
-    bottom:6px;
-    text-align:center;
+    left:10px;
+    right:auto;
+    bottom:10px;
+    text-align:left;
     padding:0;
+    margin:0;
+    line-height:0;
+    background:transparent;
   }
   .vCar .amp-carousel-indicator{
     width:6px;
     height:6px;
-    margin:0 3px;
+    margin:0 3px 0 0;
     border-radius:999px;
     opacity:.55;
     background:rgba(255,255,255,.85);
@@ -836,18 +847,18 @@ main .row{
     opacity:1;
   }
 
-  /* Sağ alt rozet */
+  /* Sağ alt rozet (en alta indirildi) */
   .vBadge{
     position:absolute;
     right:10px;
-    bottom:34px; /* noktalarla çakışmasın */
+    bottom:10px; /* en alt */
     padding:7px 12px;
     border-radius:999px;
     font-weight:900;
     font-size:12px;
     color:#fff;
     background:linear-gradient(90deg,#b100ff,#ff2fb2);
-    box-shadow:0 6px 14px rgba(0,0,0,.35);
+    box-shadow:0 6px 14px rgba(0,0,0,.30);
     text-transform:uppercase;
     letter-spacing:.4px;
     pointer-events:none;
@@ -867,7 +878,7 @@ main .row{
     .vRight{width:56%;min-width:56%;}
     .vName{font-size:20px;}
     .vList{font-size:13px;}
-    .vCarBox{height:210px;} /* istersen 200 yapabiliriz */
+    .vCarBox{height:210px;}
   }
 </style>
 
@@ -902,19 +913,19 @@ main .row{
               aria-label="Vitrin görselleri">
               <div class="vThumb">
                 <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                  width="400" height="400" layout="fill" alt="Görsel 1"></amp-img>
+                  width="800" height="800" layout="fill" alt="Görsel 1"></amp-img>
               </div>
               <div class="vThumb">
                 <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                  width="400" height="400" layout="fill" alt="Görsel 2"></amp-img>
+                  width="800" height="800" layout="fill" alt="Görsel 2"></amp-img>
               </div>
               <div class="vThumb">
                 <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                  width="400" height="400" layout="fill" alt="Görsel 3"></amp-img>
+                  width="800" height="800" layout="fill" alt="Görsel 3"></amp-img>
               </div>
               <div class="vThumb">
                 <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                  width="400" height="400" layout="fill" alt="Görsel 4"></amp-img>
+                  width="800" height="800" layout="fill" alt="Görsel 4"></amp-img>
               </div>
             </amp-carousel>
 
@@ -950,15 +961,15 @@ main .row{
               aria-label="Vitrin görselleri">
               <div class="vThumb">
                 <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                  width="400" height="400" layout="fill" alt="Görsel 1"></amp-img>
+                  width="800" height="800" layout="fill" alt="Görsel 1"></amp-img>
               </div>
               <div class="vThumb">
                 <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                  width="400" height="400" layout="fill" alt="Görsel 2"></amp-img>
+                  width="800" height="800" layout="fill" alt="Görsel 2"></amp-img>
               </div>
               <div class="vThumb">
                 <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                  width="400" height="400" layout="fill" alt="Görsel 3"></amp-img>
+                  width="800" height="800" layout="fill" alt="Görsel 3"></amp-img>
               </div>
             </amp-carousel>
 
@@ -994,15 +1005,15 @@ main .row{
               aria-label="Vitrin görselleri">
               <div class="vThumb">
                 <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                  width="400" height="400" layout="fill" alt="Görsel 1"></amp-img>
+                  width="800" height="800" layout="fill" alt="Görsel 1"></amp-img>
               </div>
               <div class="vThumb">
                 <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                  width="400" height="400" layout="fill" alt="Görsel 2"></amp-img>
+                  width="800" height="800" layout="fill" alt="Görsel 2"></amp-img>
               </div>
               <div class="vThumb">
                 <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                  width="400" height="400" layout="fill" alt="Görsel 3"></amp-img>
+                  width="800" height="800" layout="fill" alt="Görsel 3"></amp-img>
               </div>
             </amp-carousel>
 
@@ -1015,6 +1026,7 @@ main .row{
 
 </section>
 <!-- ===================== VİTRİN BİTİŞİ ===================== -->
+
 
 
  
