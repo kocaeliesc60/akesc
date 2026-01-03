@@ -423,8 +423,8 @@ main .row{
   .vitrin {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    padding: 0;
+    gap: 0px;
+    padding: 0px;
   }
 
   .vitrin-item {
@@ -433,46 +433,19 @@ main .row{
     aspect-ratio: 3 / 4;
     overflow: hidden;
     border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
   }
 
   .slider {
     display: flex;
-    overflow-x: hidden;
-    scroll-snap-type: x mandatory;
-    width: 100%;
+    transition: transform 0.4s ease-in-out;
     height: 100%;
-    position: relative;
   }
 
   .slider img {
-    flex: 0 0 100%;
     width: 100%;
-    height: 100%;
+    flex-shrink: 0;
     object-fit: cover;
-    scroll-snap-align: start;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-
-  .slider-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    z-index: 10;
-  }
-
-  .slider-controls button {
-    background: rgba(0, 0, 0, 0.4);
-    border: none;
-    color: white;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    margin: 0 5px;
   }
 
   .vitrin-overlay {
@@ -480,10 +453,9 @@ main .row{
     bottom: 0;
     width: 100%;
     padding: 10px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
     color: white;
     box-sizing: border-box;
-    z-index: 5;
   }
 
   .vitrin-name {
@@ -508,157 +480,172 @@ main .row{
     font-weight: bold;
   }
 
+  .slider-controls button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    font-size: 18px;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  .slider-controls button:hover {
+    background: rgba(0,0,0,0.8);
+  }
+
+  .slider-controls .prev { left: 6px; }
+  .slider-controls .next { right: 6px; }
+
   .pagination {
     position: absolute;
-    bottom: 8px;
+    bottom: 12px;
     width: 100%;
     text-align: center;
-    z-index: 10;
   }
 
-  .dot {
-    height: 8px;
-    width: 8px;
-    margin: 0 2px;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
+  .pagination span {
     display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin: 0 2px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
   }
 
-  .dot.active {
-    background-color: white;
+  .pagination .active {
+    background: white;
   }
 
   @media (max-width: 768px) {
-    .vitrin {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .vitrin { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 480px) {
-    .vitrin {
-      grid-template-columns: repeat(1, 1fr);
-    }
+    .vitrin { grid-template-columns: 1fr; }
   }
 </style>
 
 <div class="vitrin">
-  <!-- Vitrin 1 -->
-  <div class="vitrin-item">
-    <div class="slider" id="slider1">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-    </div>
-    <div class="slider-controls">
-      <button onclick="prevSlide('slider1')">&#10094;</button>
-      <button onclick="nextSlide('slider1')">&#10095;</button>
-    </div>
-    <div class="pagination" id="pagination1"></div>
-    <div class="vitrin-overlay">
-      <div class="vitrin-name">MAYA VE MERYEM</div>
-      <div class="vitrin-info">
-        ❤️ Sevgili Tadında<br>
-        👭 Grup<br>
-        🏠 Kendi Evi<br>
-        📱 İletişim İçin Tıkla<br>
-        <span class="badge">KARTAL</span>
+  <!-- İlan 1 -->
+  <a href="https://kocaeliesc.com/kocaeliesc/incele-25322.html" target="_blank" style="text-decoration: none; color: inherit;">
+    <div class="vitrin-item" ontouchstart="touchStart(event, 0)" ontouchmove="touchMove(event, 0)" ontouchend="touchEnd(event, 0)">
+      <div class="slider" id="slider0">
+        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+      </div>
+      <div class="slider-controls">
+        <button class="prev" onclick="prevSlide(0); event.stopPropagation();">&#10094;</button>
+        <button class="next" onclick="nextSlide(0); event.stopPropagation();">&#10095;</button>
+      </div>
+      <div class="pagination" id="pagination0"></div>
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">MAYA VE MERYEM</div>
+        <div class="vitrin-info">
+          ❤️ Sevgili Tadında<br>🧍‍♀️ Grup<br>🏠 Kendi Evi<br>📱 İletişim İçin Tıkla<br>
+          <span class="badge">KARTAL</span>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 
-  <!-- Vitrin 2 -->
-  <div class="vitrin-item">
-    <div class="slider" id="slider2">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-    </div>
-    <div class="slider-controls">
-      <button onclick="prevSlide('slider2')">&#10094;</button>
-      <button onclick="nextSlide('slider2')">&#10095;</button>
-    </div>
-    <div class="pagination" id="pagination2"></div>
-    <div class="vitrin-overlay">
-      <div class="vitrin-name">GAMZE</div>
-      <div class="vitrin-info">
-        ❤️ Sevgili Tadında<br>
-        🔥 Doyumsuz<br>
-        🚗 Ev, Otel, Rezidans<br>
-        📱 İletişim İçin Tıkla<br>
-        <span class="badge">ANADOLU YAKASI</span>
+  <!-- İlan 2 -->
+  <a href="https://kocaeliesc.com/kocaeliesc/incele-55312.html" target="_blank" style="text-decoration: none; color: inherit;">
+    <div class="vitrin-item" ontouchstart="touchStart(event, 1)" ontouchmove="touchMove(event, 1)" ontouchend="touchEnd(event, 1)">
+      <div class="slider" id="slider1">
+        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+      </div>
+      <div class="slider-controls">
+        <button class="prev" onclick="prevSlide(1); event.stopPropagation();">&#10094;</button>
+        <button class="next" onclick="nextSlide(1); event.stopPropagation();">&#10095;</button>
+      </div>
+      <div class="pagination" id="pagination1"></div>
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">GAMZE</div>
+        <div class="vitrin-info">
+          ❤️ Sevgili Tadında<br>🔥 Doyumsuz<br>🏨 Otel, Rezidans<br>📱 İletişim İçin Tıkla<br>
+          <span class="badge">ANADOLU YAKASI</span>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 
-  <!-- Vitrin 3 -->
-  <div class="vitrin-item">
-    <div class="slider" id="slider3">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-    </div>
-    <div class="slider-controls">
-      <button onclick="prevSlide('slider3')">&#10094;</button>
-      <button onclick="nextSlide('slider3')">&#10095;</button>
-    </div>
-    <div class="pagination" id="pagination3"></div>
-    <div class="vitrin-overlay">
-      <div class="vitrin-name">TANEM</div>
-      <div class="vitrin-info">
-        ❤️ Sevgili Tadında<br>
-        🔥 Doyumsuz<br>
-        🏠 Kendi Evi<br>
-        📱 İletişim İçin Tıkla<br>
-        <span class="badge">MALTEPE</span>
+  <!-- İlan 3 -->
+  <a href="https://kocaeliesc.com/kocaeliesc/incele-12901.html" target="_blank" style="text-decoration: none; color: inherit;">
+    <div class="vitrin-item" ontouchstart="touchStart(event, 2)" ontouchmove="touchMove(event, 2)" ontouchend="touchEnd(event, 2)">
+      <div class="slider" id="slider2">
+        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+      </div>
+      <div class="slider-controls">
+        <button class="prev" onclick="prevSlide(2); event.stopPropagation();">&#10094;</button>
+        <button class="next" onclick="nextSlide(2); event.stopPropagation();">&#10095;</button>
+      </div>
+      <div class="pagination" id="pagination2"></div>
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">TANEM</div>
+        <div class="vitrin-info">
+          ❤️ Sevgili Tadında<br>🔥 Doyumsuz<br>🏠 Kendi Evi<br>📱 İletişim İçin Tıkla<br>
+          <span class="badge">MALTEPE</span>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>
 
 <script>
-  const sliders = ['slider1', 'slider2', 'slider3'];
+  const totalSlides = 3;
+  const sliders = [
+    { current: 0, element: document.getElementById('slider0') },
+    { current: 0, element: document.getElementById('slider1') },
+    { current: 0, element: document.getElementById('slider2') }
+  ];
 
-  sliders.forEach(id => {
-    const slider = document.getElementById(id);
-    const imgs = slider.querySelectorAll('img');
-    const pagination = document.getElementById('pagination' + id.slice(-1));
-    let index = 0;
+  sliders.forEach((sliderObj, i) => updatePagination(i));
 
-    imgs.forEach((_, i) => {
+  function updatePagination(index) {
+    const pag = document.getElementById(`pagination${index}`);
+    pag.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
       const dot = document.createElement('span');
-      dot.classList.add('dot');
-      if (i === 0) dot.classList.add('active');
-      pagination.appendChild(dot);
-    });
-
-    window[`nextSlide`] = function (sliderId) {
-      const slider = document.getElementById(sliderId);
-      const imgs = slider.querySelectorAll('img');
-      let current = parseInt(slider.dataset.index || 0);
-      current = (current + 1) % imgs.length;
-      slider.scrollTo({ left: current * slider.clientWidth, behavior: 'smooth' });
-      slider.dataset.index = current;
-      updateDots(sliderId, current);
-    };
-
-    window[`prevSlide`] = function (sliderId) {
-      const slider = document.getElementById(sliderId);
-      const imgs = slider.querySelectorAll('img');
-      let current = parseInt(slider.dataset.index || 0);
-      current = (current - 1 + imgs.length) % imgs.length;
-      slider.scrollTo({ left: current * slider.clientWidth, behavior: 'smooth' });
-      slider.dataset.index = current;
-      updateDots(sliderId, current);
-    };
-
-    function updateDots(sliderId, currentIndex) {
-      const pagination = document.getElementById('pagination' + sliderId.slice(-1));
-      const dots = pagination.querySelectorAll('.dot');
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[currentIndex].classList.add('active');
+      if (i === sliders[index].current) dot.classList.add('active');
+      pag.appendChild(dot);
     }
-  });
+  }
+
+  function nextSlide(index) {
+    sliders[index].current = (sliders[index].current + 1) % totalSlides;
+    sliders[index].element.style.transform = `translateX(-${sliders[index].current * 100}%)`;
+    updatePagination(index);
+  }
+
+  function prevSlide(index) {
+    sliders[index].current = (sliders[index].current - 1 + totalSlides) % totalSlides;
+    sliders[index].element.style.transform = `translateX(-${sliders[index].current * 100}%)`;
+    updatePagination(index);
+  }
+
+  // Swipe support
+  let startX = 0;
+  function touchStart(e, index) {
+    startX = e.touches[0].clientX;
+  }
+  function touchMove(e, index) {
+    // Optional: preview movement
+  }
+  function touchEnd(e, index) {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (dx > 50) prevSlide(index);
+    else if (dx < -50) nextSlide(index);
+  }
 </script>
 
 
