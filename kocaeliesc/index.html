@@ -423,8 +423,8 @@ main .row{
   .vitrin {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 10px;
+    gap: 0;
+    padding: 0;
   }
 
   .vitrin-item {
@@ -433,16 +433,15 @@ main .row{
     aspect-ratio: 3 / 4;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
   }
 
   .slider {
     display: flex;
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
     width: 100%;
     height: 100%;
+    position: relative;
   }
 
   .slider img {
@@ -452,10 +451,28 @@ main .row{
     object-fit: cover;
     scroll-snap-align: start;
     display: block;
+    transition: transform 0.3s ease;
   }
 
-  .slider::-webkit-scrollbar {
-    display: none;
+  .slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .slider-controls button {
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 5px;
   }
 
   .vitrin-overlay {
@@ -463,9 +480,10 @@ main .row{
     bottom: 0;
     width: 100%;
     padding: 10px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
     color: white;
     box-sizing: border-box;
+    z-index: 5;
   }
 
   .vitrin-name {
@@ -490,6 +508,27 @@ main .row{
     font-weight: bold;
   }
 
+  .pagination {
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .dot {
+    height: 8px;
+    width: 8px;
+    margin: 0 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot.active {
+    background-color: white;
+  }
+
   @media (max-width: 768px) {
     .vitrin {
       grid-template-columns: repeat(2, 1fr);
@@ -504,18 +543,23 @@ main .row{
 </style>
 
 <div class="vitrin">
-  <!-- 1 -->
+  <!-- Vitrin 1 -->
   <div class="vitrin-item">
-    <div class="slider">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" alt="Maya ve Meryem">
-      <img src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ed45da46bc276e1.jpg" alt="">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" alt="">
+    <div class="slider" id="slider1">
+      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
     </div>
+    <div class="slider-controls">
+      <button onclick="prevSlide('slider1')">&#10094;</button>
+      <button onclick="nextSlide('slider1')">&#10095;</button>
+    </div>
+    <div class="pagination" id="pagination1"></div>
     <div class="vitrin-overlay">
       <div class="vitrin-name">MAYA VE MERYEM</div>
       <div class="vitrin-info">
         ❤️ Sevgili Tadında<br>
-        🧍‍♀️ Grup<br>
+        👭 Grup<br>
         🏠 Kendi Evi<br>
         📱 İletişim İçin Tıkla<br>
         <span class="badge">KARTAL</span>
@@ -523,13 +567,18 @@ main .row{
     </div>
   </div>
 
-  <!-- 2 -->
+  <!-- Vitrin 2 -->
   <div class="vitrin-item">
-    <div class="slider">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" alt="Gamze">
-      <img src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ed45da46bc276e1.jpg" alt="">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" alt="">
+    <div class="slider" id="slider2">
+      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
     </div>
+    <div class="slider-controls">
+      <button onclick="prevSlide('slider2')">&#10094;</button>
+      <button onclick="nextSlide('slider2')">&#10095;</button>
+    </div>
+    <div class="pagination" id="pagination2"></div>
     <div class="vitrin-overlay">
       <div class="vitrin-name">GAMZE</div>
       <div class="vitrin-info">
@@ -542,13 +591,18 @@ main .row{
     </div>
   </div>
 
-  <!-- 3 -->
+  <!-- Vitrin 3 -->
   <div class="vitrin-item">
-    <div class="slider">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" alt="Tanem">
-      <img src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ed45da46bc276e1.jpg" alt="">
-      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" alt="">
+    <div class="slider" id="slider3">
+      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
+      <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
     </div>
+    <div class="slider-controls">
+      <button onclick="prevSlide('slider3')">&#10094;</button>
+      <button onclick="nextSlide('slider3')">&#10095;</button>
+    </div>
+    <div class="pagination" id="pagination3"></div>
     <div class="vitrin-overlay">
       <div class="vitrin-name">TANEM</div>
       <div class="vitrin-info">
@@ -561,6 +615,51 @@ main .row{
     </div>
   </div>
 </div>
+
+<script>
+  const sliders = ['slider1', 'slider2', 'slider3'];
+
+  sliders.forEach(id => {
+    const slider = document.getElementById(id);
+    const imgs = slider.querySelectorAll('img');
+    const pagination = document.getElementById('pagination' + id.slice(-1));
+    let index = 0;
+
+    imgs.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      pagination.appendChild(dot);
+    });
+
+    window[`nextSlide`] = function (sliderId) {
+      const slider = document.getElementById(sliderId);
+      const imgs = slider.querySelectorAll('img');
+      let current = parseInt(slider.dataset.index || 0);
+      current = (current + 1) % imgs.length;
+      slider.scrollTo({ left: current * slider.clientWidth, behavior: 'smooth' });
+      slider.dataset.index = current;
+      updateDots(sliderId, current);
+    };
+
+    window[`prevSlide`] = function (sliderId) {
+      const slider = document.getElementById(sliderId);
+      const imgs = slider.querySelectorAll('img');
+      let current = parseInt(slider.dataset.index || 0);
+      current = (current - 1 + imgs.length) % imgs.length;
+      slider.scrollTo({ left: current * slider.clientWidth, behavior: 'smooth' });
+      slider.dataset.index = current;
+      updateDots(sliderId, current);
+    };
+
+    function updateDots(sliderId, currentIndex) {
+      const pagination = document.getElementById('pagination' + sliderId.slice(-1));
+      const dots = pagination.querySelectorAll('.dot');
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentIndex].classList.add('active');
+    }
+  });
+</script>
 
 
 
