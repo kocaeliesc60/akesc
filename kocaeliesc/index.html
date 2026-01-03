@@ -415,139 +415,96 @@ main .row{
 </a>
 <style amp-custom>
   .vipWrap {
-    width: 100%;
-    max-width: none;
+    padding: 0;
     margin: 0 auto;
-    padding: 0 8px 14px;
-  }
-
-  .vipBar {
     width: 100%;
-    margin: 10px 0 6px;
-    padding: 12px 10px;
-    text-align: center;
-    font-weight: 900;
-    letter-spacing: .6px;
-    color: #fff;
-    background: linear-gradient(180deg, #0b0b0b, #1c1c1c);
-    border-top: 2px solid rgba(255, 255, 255, .08);
-    border-bottom: 2px solid rgba(255, 255, 255, .08);
-    text-transform: uppercase;
+    max-width: 100%;
   }
 
   .vipTitle {
-    width: 100%;
-    margin: 0 0 10px;
-    padding: 10px 10px 12px;
     text-align: center;
+    font-size: 32px;
+    padding: 12px;
+    background: #111;
+    color: gold;
     font-weight: 900;
-    letter-spacing: 1px;
-    font-size: 26px;
-    color: #d7b56d;
+    letter-spacing: 1.4px;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, .8);
+    border-bottom: 2px solid #444;
     text-transform: uppercase;
-    background: linear-gradient(180deg, #0b0b0b, #151515);
-    border-bottom: 2px solid rgba(255, 255, 255, .08);
-    text-shadow: 0 2px 0 rgba(0, 0, 0, .6);
   }
 
   .vipRow {
-    width: 100%;
     display: flex;
-    gap: 8px;
-    margin: 12px 0;
+    width: 100%;
+    gap: 6px;
+    padding: 10px 0;
   }
 
   .vipLeft {
-    width: 42%;
-    min-width: 42%;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    background: linear-gradient(90deg, rgba(255, 0, 180, .78), rgba(255, 0, 180, .35)), radial-gradient(circle at 20% 20%, rgba(255, 255, 255, .12), transparent 55%), #1b1b1b;
-    border: 1px solid rgba(255, 255, 255, .10);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .22);
-    padding: 10px;
+    width: 36%;
+    background: linear-gradient(to bottom right, #e70068, #e70068c7);
     color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
   }
 
   .vipName {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
-    letter-spacing: .5px;
-    margin: 0 0 6px;
+    margin-bottom: 6px;
     text-transform: uppercase;
   }
 
   .vipList {
-    margin: 0;
-    padding: 0;
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-weight: 800;
-    font-size: 13px;
+    padding: 0;
+    margin: 0;
   }
 
   .vipList li {
     display: flex;
     align-items: center;
-    gap: 8px;
-    line-height: 1.2;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
+    gap: 6px;
+    margin-bottom: 5px;
   }
 
-  .vipIco {
+  .vipIcon {
     width: 18px;
-    display: inline-flex;
-    justify-content: center;
   }
 
   .vipWapp {
+    display: inline-block;
     margin-top: 10px;
-    display: inline-flex;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, .4);
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 10px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, .35);
-    border: 1px solid rgba(255, 255, 255, .12);
-    font-weight: 900;
+    border: 1px solid #fff3;
     font-size: 12px;
     text-transform: uppercase;
   }
 
-  .vipWapp .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #25D366;
-    box-shadow: 0 0 0 3px rgba(37, 211, 102, .18);
-  }
-
   .vipRight {
-    width: 58%;
-    min-width: 58%;
+    width: 64%;
     position: relative;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, .10);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .22);
-    background: #0f0f0f;
     display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    justify-content: center;
-    align-items: center;
-    padding: 4px;
+    gap: 2px;
   }
 
   .vipImgBox {
+    flex: 1;
+    height: auto;
+    min-height: 120px;
     position: relative;
-    width: calc(33.333% - 4px);
-    aspect-ratio: 1 / 1;
-    background: #000;
-    border-radius: 6px;
     overflow: hidden;
   }
 
@@ -557,68 +514,51 @@ main .row{
 
   .vipBadge {
     position: absolute;
-    right: 8px;
     bottom: 8px;
+    right: 8px;
+    background: linear-gradient(90deg, #b100ff, #ff2fb2);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
     padding: 6px 10px;
     border-radius: 999px;
-    font-weight: 900;
-    font-size: 12px;
-    color: #fff;
-    background: linear-gradient(90deg, #b100ff, #ff2fb2);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .4);
     text-transform: uppercase;
-    letter-spacing: .4px;
-  }
-
-  @media (min-width:768px) {
-    .vipImgBox { aspect-ratio: 1 / 1; }
-    .vipName { font-size: 22px; }
-    .vipTitle { font-size: 30px; }
   }
 </style>
 
 <section class="vipWrap">
-  <div class="vipBar">LUX VİTRİN İLANI VERMEK İÇİN TIKLAYIN</div>
-  <div class="vipTitle">LUX VİTRİN</div>
+  <div class="vipTitle">VIP VİTRİN</div>
 
-  <a rel="nofollow" href="incele-XXXX.html" target="_blank" style="text-decoration:none;color:inherit;">
+  <a rel="nofollow" href="incele-xxxx.html" style="text-decoration:none;color:inherit;">
     <div class="vipRow">
-      <!-- SOL ALAN -->
+
       <div class="vipLeft">
-        <div class="vipName">GAMZE</div>
+        <div class="vipName">Gamze</div>
         <ul class="vipList">
-          <li><span class="vipIco">❤</span> SEVGİLİ TADINDA</li>
-          <li><span class="vipIco">❤</span> DOYUMSUZ</li>
-          <li><span class="vipIco">🏨</span> EV, OTEL, REZİDANS</li>
-          <li><span class="vipIco">📱</span> İLETİŞİM İÇİN TIKLA</li>
+          <li><span class="vipIcon">❤</span> Sevgili Tadında</li>
+          <li><span class="vipIcon">❤</span> Doyumsuz</li>
+          <li><span class="vipIcon">🚗</span> Ev, Otel, Rezidans</li>
+          <li><span class="vipIcon">📱</span> İletişim İçin Tıkla</li>
         </ul>
         <div class="vipWapp">
-          <span class="dot"></span> WHATSAPP
+          <span style="width:10px;height:10px;border-radius:50%;background:#25D366;box-shadow:0 0 0 3px rgba(37,211,102,.18);"></span> WhatsApp
         </div>
       </div>
 
-      <!-- SAĞ GÖRSELLER -->
       <div class="vipRight">
         <div class="vipImgBox">
-          <amp-img src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg"
-                   width="400" height="400"
-                   layout="responsive"
-                   alt="Vitrin"></amp-img>
+          <amp-img src="https://via.placeholder.com/400x400?text=1" width="400" height="400" layout="responsive" alt="1"></amp-img>
         </div>
         <div class="vipImgBox">
-          <amp-img src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg"
-                   width="400" height="400"
-                   layout="responsive"
-                   alt="Vitrin"></amp-img>
+          <amp-img src="https://via.placeholder.com/400x400?text=2" width="400" height="400" layout="responsive" alt="2"></amp-img>
         </div>
         <div class="vipImgBox">
-          <amp-img src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg"
-                   width="400" height="400"
-                   layout="responsive"
-                   alt="Vitrin"></amp-img>
+          <amp-img src="https://via.placeholder.com/400x400?text=3" width="400" height="400" layout="responsive" alt="3"></amp-img>
         </div>
-        <div class="vipBadge">ANADOLU YAKASI</div>
+        <div class="vipBadge">Anadolu Yakası</div>
       </div>
+
     </div>
   </a>
 </section>
