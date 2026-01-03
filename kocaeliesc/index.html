@@ -773,30 +773,74 @@ main .row{
     min-width:60%;
     position:relative;
     background:#0b0b0b;
+    overflow:hidden; /* stabil */
   }
 
-  /* Carousel: 4 küçük görsel, swipe ile kayar */
-  .vCar{
+  /* === Carousel stabil kutu === */
+  .vCarBox{
+    position:relative;
     width:100%;
-    height:100%;
+    height:210px;
   }
+  .vCar{
+    position:absolute;
+    inset:0;
+  }
+
   .vThumb{
     position:relative;
     width:100%;
     height:100%;
     overflow:hidden;
+    background:#000;
   }
   .vThumb amp-img{
-    width:100%;
-    height:100%;
     object-fit:cover;
+  }
+
+  /* OKLARI KÜÇÜLT */
+  .vCar .amp-carousel-button{
+    width:26px;
+    height:26px;
+    min-width:26px;
+    min-height:26px;
+    border-radius:999px;
+    opacity:.75;
+    background-color:rgba(0,0,0,.35);
+    box-shadow:0 6px 14px rgba(0,0,0,.25);
+  }
+  .vCar .amp-carousel-button:hover{ opacity:1; }
+  .vCar .amp-carousel-button-next,
+  .vCar .amp-carousel-button-prev{
+    background-size:10px 10px;
+  }
+
+  /* NOKTALAR (GÖSTERGE) */
+  .vCar .amp-carousel-indicators{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:6px;
+    text-align:center;
+    padding:0;
+  }
+  .vCar .amp-carousel-indicator{
+    width:6px;
+    height:6px;
+    margin:0 3px;
+    border-radius:999px;
+    opacity:.55;
+    background:rgba(255,255,255,.85);
+  }
+  .vCar .amp-carousel-indicator-selected{
+    opacity:1;
   }
 
   /* Sağ alt rozet */
   .vBadge{
     position:absolute;
     right:10px;
-    bottom:10px;
+    bottom:34px; /* noktalarla çakışmasın */
     padding:7px 12px;
     border-radius:999px;
     font-weight:900;
@@ -823,6 +867,7 @@ main .row{
     .vRight{width:56%;min-width:56%;}
     .vName{font-size:20px;}
     .vList{font-size:13px;}
+    .vCarBox{height:210px;} /* istersen 200 yapabiliriz */
   }
 </style>
 
@@ -848,32 +893,33 @@ main .row{
         </div>
 
         <div class="vRight">
-          <amp-carousel class="vCar"
-            type="carousel"
-            height="210"
-            layout="fixed-height"
-            controls
-            loop
-            snap
-            aria-label="Vitrin görselleri">
-            <div class="vThumb">
-              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                width="400" height="400" layout="responsive" alt="Görsel 1"></amp-img>
-            </div>
-            <div class="vThumb">
-              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                width="400" height="400" layout="responsive" alt="Görsel 2"></amp-img>
-            </div>
-            <div class="vThumb">
-              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                width="400" height="400" layout="responsive" alt="Görsel 3"></amp-img>
-            </div>
-            <div class="vThumb">
-              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                width="400" height="400" layout="responsive" alt="Görsel 4"></amp-img>
-            </div>
-          </amp-carousel>
-          <div class="vBadge">BÖLGE 1</div>
+          <div class="vCarBox">
+            <amp-carousel class="vCar"
+              type="slides"
+              layout="fill"
+              controls
+              loop
+              aria-label="Vitrin görselleri">
+              <div class="vThumb">
+                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                  width="400" height="400" layout="fill" alt="Görsel 1"></amp-img>
+              </div>
+              <div class="vThumb">
+                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                  width="400" height="400" layout="fill" alt="Görsel 2"></amp-img>
+              </div>
+              <div class="vThumb">
+                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                  width="400" height="400" layout="fill" alt="Görsel 3"></amp-img>
+              </div>
+              <div class="vThumb">
+                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                  width="400" height="400" layout="fill" alt="Görsel 4"></amp-img>
+              </div>
+            </amp-carousel>
+
+            <div class="vBadge">BÖLGE 1</div>
+          </div>
         </div>
       </div>
     </a>
@@ -895,28 +941,29 @@ main .row{
         </div>
 
         <div class="vRight">
-          <amp-carousel class="vCar"
-            type="carousel"
-            height="210"
-            layout="fixed-height"
-            controls
-            loop
-            snap
-            aria-label="Vitrin görselleri">
-            <div class="vThumb">
-              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                width="400" height="400" layout="responsive" alt="Görsel 1"></amp-img>
-            </div>
-            <div class="vThumb">
-              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                width="400" height="400" layout="responsive" alt="Görsel 2"></amp-img>
-            </div>
-            <div class="vThumb">
-              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                width="400" height="400" layout="responsive" alt="Görsel 3"></amp-img>
-            </div>
-          </amp-carousel>
-          <div class="vBadge">BÖLGE 2</div>
+          <div class="vCarBox">
+            <amp-carousel class="vCar"
+              type="slides"
+              layout="fill"
+              controls
+              loop
+              aria-label="Vitrin görselleri">
+              <div class="vThumb">
+                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                  width="400" height="400" layout="fill" alt="Görsel 1"></amp-img>
+              </div>
+              <div class="vThumb">
+                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                  width="400" height="400" layout="fill" alt="Görsel 2"></amp-img>
+              </div>
+              <div class="vThumb">
+                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                  width="400" height="400" layout="fill" alt="Görsel 3"></amp-img>
+              </div>
+            </amp-carousel>
+
+            <div class="vBadge">BÖLGE 2</div>
+          </div>
         </div>
       </div>
     </a>
@@ -938,28 +985,29 @@ main .row{
         </div>
 
         <div class="vRight">
-          <amp-carousel class="vCar"
-            type="carousel"
-            height="210"
-            layout="fixed-height"
-            controls
-            loop
-            snap
-            aria-label="Vitrin görselleri">
-            <div class="vThumb">
-              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                width="400" height="400" layout="responsive" alt="Görsel 1"></amp-img>
-            </div>
-            <div class="vThumb">
-              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                width="400" height="400" layout="responsive" alt="Görsel 2"></amp-img>
-            </div>
-            <div class="vThumb">
-              <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
-                width="400" height="400" layout="responsive" alt="Görsel 3"></amp-img>
-            </div>
-          </amp-carousel>
-          <div class="vBadge">BÖLGE 3</div>
+          <div class="vCarBox">
+            <amp-carousel class="vCar"
+              type="slides"
+              layout="fill"
+              controls
+              loop
+              aria-label="Vitrin görselleri">
+              <div class="vThumb">
+                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                  width="400" height="400" layout="fill" alt="Görsel 1"></amp-img>
+              </div>
+              <div class="vThumb">
+                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                  width="400" height="400" layout="fill" alt="Görsel 2"></amp-img>
+              </div>
+              <div class="vThumb">
+                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                  width="400" height="400" layout="fill" alt="Görsel 3"></amp-img>
+              </div>
+            </amp-carousel>
+
+            <div class="vBadge">BÖLGE 3</div>
+          </div>
         </div>
       </div>
     </a>
@@ -967,6 +1015,7 @@ main .row{
 
 </section>
 <!-- ===================== VİTRİN BİTİŞİ ===================== -->
+
 
  
  <footer class="text-light anarenk container-fluid" role="contentinfo">
