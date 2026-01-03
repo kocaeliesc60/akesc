@@ -652,235 +652,186 @@ main .row{
 
 <!-- ===================== VİTRİN BAŞLANGICI ===================== -->
 <style amp-custom>
-  /* Alt vitrin - nötr vitrin kart tasarımı (AMP uyumlu) */
-  .vitrinWrap{
-    width:100%;
-    max-width:1100px;
-    margin:0 auto;
-    padding:8px 10px 14px;
-    box-sizing:border-box;
+  .vitrinWrap {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px 10px 14px;
+    box-sizing: border-box;
   }
 
-  .vitrinHead{
-    margin:8px 0 10px;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 6px 18px rgba(0,0,0,.25);
-  }
-  .vitrinCta{
-    background:linear-gradient(180deg,#0b0b0b,#1a1a1a);
-    color:#fff;
-    font-weight:900;
-    letter-spacing:.8px;
-    text-transform:uppercase;
-    text-align:center;
-    padding:12px 10px;
-    border-bottom:2px solid rgba(255,255,255,.08);
-  }
-  .vitrinTitle{
-    background:linear-gradient(180deg,#0b0b0b,#141414);
-    color:#d7b56d;
-    font-weight:900;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    text-align:center;
-    padding:12px 10px;
-    font-size:28px;
-    text-shadow:0 2px 0 rgba(0,0,0,.6);
+  .vitrinHead {
+    margin: 8px 0 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
   }
 
-  .vCard{
-    width:100%;
-    border-radius:14px;
-    overflow:hidden;
-    margin:10px 0;
-    background:rgba(0,0,0,.20);
-    box-shadow:0 8px 22px rgba(0,0,0,.28);
-    border:1px solid rgba(255,255,255,.08);
+  .vitrinCta {
+    background: linear-gradient(180deg, #0b0b0b, #1a1a1a);
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 12px 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, .08);
   }
 
-  .vRow{
-    display:flex;
-    gap:0;
-    width:100%;
+  .vitrinTitle {
+    background: linear-gradient(180deg, #0b0b0b, #141414);
+    color: #d7b56d;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 12px 10px;
+    font-size: 28px;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, .6);
   }
 
-  /* Sol bilgi paneli */
-  .vLeft{
-    width:40%;
-    min-width:40%;
-    background:
-      linear-gradient(90deg, rgba(255,0,150,.85), rgba(255,0,150,.38)),
-      radial-gradient(circle at 25% 20%, rgba(255,255,255,.12), transparent 55%),
-      #111;
-    color:#fff;
-    padding:14px 12px;
-    box-sizing:border-box;
-  }
-  .vName{
-    font-size:22px;
-    font-weight:900;
-    letter-spacing:.5px;
-    margin:0 0 10px;
-    text-transform:uppercase;
-    text-shadow:0 2px 0 rgba(0,0,0,.35);
-  }
-  .vList{
-    margin:0;
-    padding:0;
-    list-style:none;
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    font-weight:800;
-    font-size:14px;
-    line-height:1.15;
-  }
-  .vList li{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-shadow:0 1px 0 rgba(0,0,0,.45);
-  }
-  .vIco{
-    width:18px;
-    display:inline-flex;
-    justify-content:center;
+  .vCard {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, .20);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .28);
+    border: 1px solid rgba(255, 255, 255, .08);
   }
 
-  .vAction{
-    margin-top:12px;
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:10px 12px;
-    border-radius:12px;
-    background:rgba(0,0,0,.35);
-    border:1px solid rgba(255,255,255,.14);
-    font-weight:900;
-    font-size:12px;
-    text-transform:uppercase;
-  }
-  .vAction .dot{
-    width:10px;height:10px;border-radius:50%;
-    background:#25D366;
-    box-shadow:0 0 0 4px rgba(37,211,102,.18);
+  .vRow {
+    display: flex;
+    gap: 0;
+    width: 100%;
   }
 
-  /* Sağ görsel alanı */
-  .vRight{
-    width:60%;
-    min-width:60%;
-    position:relative;
-    overflow:hidden;
-    background:transparent; /* siyahlık istemiyorsun */
+  .vLeft {
+    width: 40%;
+    min-width: 40%;
+    background: linear-gradient(90deg, rgba(255,0,150,.85), rgba(255,0,150,.38)),
+                radial-gradient(circle at 25% 20%, rgba(255,255,255,.12), transparent 55%),
+                #111;
+    color: #fff;
+    padding: 14px 12px;
+    box-sizing: border-box;
   }
 
-  /* === Carousel stabil kutu === */
-  .vCarBox{
-    position:relative;
-    width:100%;
-    height:210px;
-  }
-  .vCar{
-    position:absolute;
-    inset:0;
-    background:transparent;
+  .vName {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, .35);
   }
 
-  /* AMP slide arka planlarını da şeffaf yap */
-  .vCar .amp-carousel-slide{
-    background:transparent;
+  .vList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1.15;
   }
 
-  .vThumb{
-    position:relative;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    background:transparent; /* siyahlık kaldır */
+  .vList li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .45);
   }
 
-  /* Görseli tamamen sığdır (kırpma yok), kalite düşmez */
-  .vThumb amp-img img{
-    object-fit:contain;
+  .vIco {
+    width: 18px;
+    display: inline-flex;
+    justify-content: center;
   }
 
-  /* OKLARI DAHA KÜÇÜK */
-  .vCar .amp-carousel-button{
-    width:24px;
-    height:24px;
-    min-width:24px;
-    min-height:24px;
-    border-radius:999px;
-    opacity:.75;
-    background-color:rgba(0,0,0,.25);
-    box-shadow:0 6px 14px rgba(0,0,0,.20);
-  }
-  .vCar .amp-carousel-button:hover{ opacity:1; }
-  .vCar .amp-carousel-button-next,
-  .vCar .amp-carousel-button-prev{
-    background-size:9px 9px;
+  .vAction {
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, .35);
+    border: 1px solid rgba(255, 255, 255, .14);
+    font-weight: 900;
+    font-size: 12px;
+    text-transform: uppercase;
   }
 
-  /* NOKTALAR (GÖSTERGE) */
-  .vCar .amp-carousel-indicators{
-    position:absolute;
-    left:10px;
-    right:auto;
-    bottom:10px;
-    text-align:left;
-    padding:0;
-    margin:0;
-    line-height:0;
-    background:transparent;
-  }
-  .vCar .amp-carousel-indicator{
-    width:6px;
-    height:6px;
-    margin:0 3px 0 0;
-    border-radius:999px;
-    opacity:.55;
-    background:rgba(255,255,255,.85);
-  }
-  .vCar .amp-carousel-indicator-selected{
-    opacity:1;
+  .vAction .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #25D366;
+    box-shadow: 0 0 0 4px rgba(37, 211, 102, .18);
   }
 
-  /* Sağ alt rozet (en alta indirildi) */
-  .vBadge{
-    position:absolute;
-    right:10px;
-    bottom:10px; /* en alt */
-    padding:7px 12px;
-    border-radius:999px;
-    font-weight:900;
-    font-size:12px;
-    color:#fff;
-    background:linear-gradient(90deg,#b100ff,#ff2fb2);
-    box-shadow:0 6px 14px rgba(0,0,0,.30);
-    text-transform:uppercase;
-    letter-spacing:.4px;
-    pointer-events:none;
+  .vRight {
+    width: 60%;
+    min-width: 60%;
+    position: relative;
+    background: transparent;
   }
 
-  /* Kart içi tıklama */
-  .vLink{
-    display:block;
-    text-decoration:none;
-    color:inherit;
+  .vCar {
+    width: 100%;
+    height: 100%;
   }
 
-  /* Mobil oranlar */
-  @media (max-width:480px){
-    .vitrinTitle{font-size:26px;}
-    .vLeft{width:44%;min-width:44%;}
-    .vRight{width:56%;min-width:56%;}
-    .vName{font-size:20px;}
-    .vList{font-size:13px;}
-    .vCarBox{height:210px;}
+  .vThumb {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .vThumb amp-img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+
+  .vBadge {
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 10px;
+    color: #fff;
+    background: linear-gradient(90deg, #b100ff, #ff2fb2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
+    text-transform: uppercase;
+    pointer-events: none;
+    margin-bottom: 2px;
+  }
+
+  .vLink {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @media (max-width: 480px) {
+    .vitrinTitle { font-size: 26px; }
+    .vLeft { width: 44%; min-width: 44%; }
+    .vRight { width: 56%; min-width: 56%; }
+    .vName { font-size: 20px; }
+    .vList { font-size: 13px; }
+    .vBadge { font-size: 9px; padding: 4px 8px; }
   }
 </style>
+
+<!-- Kartları buraya ekleyebilirsin, örnek olarak yukarıdaki KART 1/2/3 kodları geçerlidir. -->
+<!-- ===================== VİTRİN BİTİŞİ ===================== -->
+
 
 <section class="vitrinWrap">
   <div class="vitrinHead">
@@ -912,7 +863,7 @@ main .row{
               loop
               aria-label="Vitrin görselleri">
               <div class="vThumb">
-                <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg"
+                <amp-img src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/09d443626fda692.jpg"
                   width="800" height="800" layout="fill" alt="Görsel 1"></amp-img>
               </div>
               <div class="vThumb">
