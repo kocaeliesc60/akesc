@@ -414,232 +414,215 @@ main .row{
   </div>
 </a>
 <style amp-custom>
-  /* ===== MALTEPEOKUL TARZI VIP VITRIN ===== */
-  .vipBar{
-    width:100%;
-    margin:10px 0 6px;
-    padding:12px 10px;
-    text-align:center;
-    font-weight:900;
-    letter-spacing:.6px;
-    color:#fff;
-    background:linear-gradient(180deg,#0b0b0b,#1c1c1c);
-    border-top:2px solid rgba(255,255,255,.08);
-    border-bottom:2px solid rgba(255,255,255,.08);
-    text-transform:uppercase;
-  }
-  .vipTitle{
-    width:100%;
-    margin:0 0 10px;
-    padding:10px 10px 12px;
-    text-align:center;
-    font-weight:900;
-    letter-spacing:1px;
-    font-size:26px;
-    color:#d7b56d;
-    text-transform:uppercase;
-    background:linear-gradient(180deg,#0b0b0b,#151515);
-    border-bottom:2px solid rgba(255,255,255,.08);
-    text-shadow:0 2px 0 rgba(0,0,0,.6);
+  .vipWrap {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 8px 14px;
   }
 
-  .vipWrap{
-    width:100%;
-    max-width:none;
-    margin:0 auto;
-    padding:0 8px 14px;
+  .vipBar {
+    width: 100%;
+    margin: 10px 0 6px;
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: .6px;
+    color: #fff;
+    background: linear-gradient(180deg, #0b0b0b, #1c1c1c);
+    border-top: 2px solid rgba(255, 255, 255, .08);
+    border-bottom: 2px solid rgba(255, 255, 255, .08);
+    text-transform: uppercase;
   }
 
-  .vipRow{
-    width:100%;
-    display:flex;
-    gap:6px;
-    margin:10px 0;
+  .vipTitle {
+    width: 100%;
+    margin: 0 0 10px;
+    padding: 10px 10px 12px;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 26px;
+    color: #d7b56d;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #0b0b0b, #151515);
+    border-bottom: 2px solid rgba(255, 255, 255, .08);
+    text-shadow: 0 2px 0 rgba(0, 0, 0, .6);
   }
 
-  .vipLeft{
-    width:42%;
-    min-width:42%;
-    position:relative;
-    border-radius:10px;
-    overflow:hidden;
-    background:
-      linear-gradient(90deg, rgba(255,0,180,.78), rgba(255,0,180,.35)),
-      radial-gradient(circle at 20% 20%, rgba(255,255,255,.12), transparent 55%),
-      #1b1b1b;
-    border:1px solid rgba(255,255,255,.10);
-    box-shadow:0 4px 12px rgba(0,0,0,.22);
-    padding:10px 10px 10px;
-    color:#fff;
+  .vipRow {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    margin: 12px 0;
   }
 
-  .vipName{
-    font-size:20px;
-    font-weight:900;
-    letter-spacing:.5px;
-    margin:0 0 6px;
-    text-transform:uppercase;
+  .vipLeft {
+    width: 42%;
+    min-width: 42%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(90deg, rgba(255, 0, 180, .78), rgba(255, 0, 180, .35)), radial-gradient(circle at 20% 20%, rgba(255, 255, 255, .12), transparent 55%), #1b1b1b;
+    border: 1px solid rgba(255, 255, 255, .10);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .22);
+    padding: 10px;
+    color: #fff;
   }
 
-  .vipList{
-    margin:0;
-    padding:0;
-    list-style:none;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    font-weight:800;
-    font-size:13px;
-  }
-  .vipList li{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    line-height:1.2;
-    text-shadow:0 1px 0 rgba(0,0,0,.5);
-  }
-  .vipIco{
-    width:18px;
-    display:inline-flex;
-    justify-content:center;
+  .vipName {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: .5px;
+    margin: 0 0 6px;
+    text-transform: uppercase;
   }
 
-  .vipWapp{
-    margin-top:10px;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:8px 10px;
-    border-radius:10px;
-    background:rgba(0,0,0,.35);
-    border:1px solid rgba(255,255,255,.12);
-    font-weight:900;
-    font-size:12px;
-    text-transform:uppercase;
-  }
-  .vipWapp .dot{
-    width:10px;height:10px;border-radius:50%;
-    background:#25D366;
-    box-shadow:0 0 0 3px rgba(37,211,102,.18);
+  .vipList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-weight: 800;
+    font-size: 13px;
   }
 
-  .vipRight{
-    width:58%;
-    min-width:58%;
-    position:relative;
-    border-radius:10px;
-    overflow:hidden;
-    border:1px solid rgba(255,255,255,.10);
-    box-shadow:0 4px 12px rgba(0,0,0,.22);
-    background:#0f0f0f;
+  .vipList li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.2;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
   }
 
-  .vipGrid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:2px;
-    width:100%;
-    height:100%;
+  .vipIco {
+    width: 18px;
+    display: inline-flex;
+    justify-content: center;
   }
 
-  .vipImgBox{
-    position:relative;
-    width:100%;
-    height:100%;
-    min-height:130px; /* mobil yükseklik */
-    background:#000;
+  .vipWapp {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, .35);
+    border: 1px solid rgba(255, 255, 255, .12);
+    font-weight: 900;
+    font-size: 12px;
+    text-transform: uppercase;
   }
 
-  .vipBadge{
-    position:absolute;
-    right:8px;
-    bottom:8px;
-    padding:6px 10px;
-    border-radius:999px;
-    font-weight:900;
-    font-size:12px;
-    color:#fff;
-    background:linear-gradient(90deg,#b100ff,#ff2fb2);
-    box-shadow:0 4px 10px rgba(0,0,0,.35);
-    text-transform:uppercase;
-    letter-spacing:.4px;
+  .vipWapp .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #25D366;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, .18);
   }
 
-  /* Masaüstünde biraz yükselt */
-  @media (min-width:768px){
-    .vipImgBox{min-height:170px;}
-    .vipName{font-size:22px;}
-    .vipTitle{font-size:30px;}
+  .vipRight {
+    width: 58%;
+    min-width: 58%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .10);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .22);
+    background: #0f0f0f;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+  }
+
+  .vipImgBox {
+    position: relative;
+    width: calc(33.333% - 4px);
+    aspect-ratio: 1 / 1;
+    background: #000;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .vipImgBox amp-img {
+    object-fit: cover;
+  }
+
+  .vipBadge {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 900;
+    font-size: 12px;
+    color: #fff;
+    background: linear-gradient(90deg, #b100ff, #ff2fb2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+
+  @media (min-width:768px) {
+    .vipImgBox { aspect-ratio: 1 / 1; }
+    .vipName { font-size: 22px; }
+    .vipTitle { font-size: 30px; }
   }
 </style>
-<section class="vipWrap">
 
+<section class="vipWrap">
   <div class="vipBar">LUX VİTRİN İLANI VERMEK İÇİN TIKLAYIN</div>
   <div class="vipTitle">LUX VİTRİN</div>
 
-  <!-- ==== VİTRİN SATIRI (1) ==== -->
   <a rel="nofollow" href="incele-XXXX.html" target="_blank" style="text-decoration:none;color:inherit;">
     <div class="vipRow">
-
-      <!-- SOL BİLGİ -->
+      <!-- SOL ALAN -->
       <div class="vipLeft">
         <div class="vipName">GAMZE</div>
-
         <ul class="vipList">
           <li><span class="vipIco">❤</span> SEVGİLİ TADINDA</li>
           <li><span class="vipIco">❤</span> DOYUMSUZ</li>
           <li><span class="vipIco">🏨</span> EV, OTEL, REZİDANS</li>
           <li><span class="vipIco">📱</span> İLETİŞİM İÇİN TIKLA</li>
         </ul>
-
         <div class="vipWapp">
           <span class="dot"></span> WHATSAPP
         </div>
       </div>
 
-      <!-- SAĞ KOLAJ -->
+      <!-- SAĞ GÖRSELLER -->
       <div class="vipRight">
-        <div class="vipGrid">
-
-          <div class="vipImgBox">
-            <amp-img
-              src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg"
-              width="400" height="400"
-              layout="fill"
-              alt="Vitrin">
-            </amp-img>
-          </div>
-
-          <div class="vipImgBox">
-            <amp-img
-              src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg"
-              width="400" height="400"
-              layout="fill"
-              alt="Vitrin">
-            </amp-img>
-          </div>
-
-          <div class="vipImgBox">
-            <amp-img
-              src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg"
-              width="400" height="400"
-              layout="fill"
-              alt="Vitrin">
-            </amp-img>
-          </div>
-
+        <div class="vipImgBox">
+          <amp-img src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg"
+                   width="400" height="400"
+                   layout="responsive"
+                   alt="Vitrin"></amp-img>
         </div>
-
+        <div class="vipImgBox">
+          <amp-img src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg"
+                   width="400" height="400"
+                   layout="responsive"
+                   alt="Vitrin"></amp-img>
+        </div>
+        <div class="vipImgBox">
+          <amp-img src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg"
+                   width="400" height="400"
+                   layout="responsive"
+                   alt="Vitrin"></amp-img>
+        </div>
         <div class="vipBadge">ANADOLU YAKASI</div>
       </div>
-
     </div>
   </a>
-
-  <!-- ==== VİTRİN SATIRI (2) ==== -->
-  <!-- Yukarıdaki bloğu kopyala, isim / açıklama / 3 görsel / badge değiştir -->
-
 </section>
+
 
  
  <footer class="text-light anarenk container-fluid" role="contentinfo">
