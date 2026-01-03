@@ -652,66 +652,24 @@ main .row{
 
 <!-- ===================== VİTRİN BAŞLANGICI ===================== -->
 <style amp-custom>
-  .vitrinWrap {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 8px 10px 14px;
-    box-sizing: border-box;
-  }
-
-  .vitrinHead {
-    margin: 8px 0 10px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
-  }
-
-  .vitrinCta {
-    background: linear-gradient(180deg, #0b0b0b, #1a1a1a);
-    color: #fff;
-    font-weight: 900;
-    letter-spacing: .8px;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 12px 10px;
-    border-bottom: 2px solid rgba(255, 255, 255, .08);
-  }
-
-  .vitrinTitle {
-    background: linear-gradient(180deg, #0b0b0b, #141414);
-    color: #d7b56d;
-    font-weight: 900;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 12px 10px;
-    font-size: 28px;
-    text-shadow: 0 2px 0 rgba(0, 0, 0, .6);
-  }
-
   .vCard {
     width: 100%;
     border-radius: 14px;
     overflow: hidden;
     margin: 10px 0;
-    background: rgba(0, 0, 0, .20);
-    box-shadow: 0 8px 22px rgba(0, 0, 0, .28);
-    border: 1px solid rgba(255, 255, 255, .08);
+    background: rgba(0,0,0,.20);
+    box-shadow: 0 8px 22px rgba(0,0,0,.28);
+    border: 1px solid rgba(255,255,255,.08);
   }
 
   .vRow {
     display: flex;
-    gap: 0;
     width: 100%;
   }
 
   .vLeft {
     width: 40%;
-    min-width: 40%;
-    background: linear-gradient(90deg, rgba(255,0,150,.85), rgba(255,0,150,.38)),
-                radial-gradient(circle at 25% 20%, rgba(255,255,255,.12), transparent 55%),
-                #111;
+    background: linear-gradient(90deg, rgba(255,0,150,.85), rgba(255,0,150,.38));
     color: #fff;
     padding: 14px 12px;
     box-sizing: border-box;
@@ -722,61 +680,44 @@ main .row{
     font-weight: 900;
     margin-bottom: 10px;
     text-transform: uppercase;
-    text-shadow: 0 2px 0 rgba(0, 0, 0, .35);
   }
 
   .vList {
-    margin: 0;
-    padding: 0;
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-weight: 800;
+    padding: 0;
+    margin: 0;
     font-size: 14px;
-    line-height: 1.15;
+    font-weight: bold;
   }
 
   .vList li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .45);
-  }
-
-  .vIco {
-    width: 18px;
-    display: inline-flex;
-    justify-content: center;
+    margin-bottom: 8px;
   }
 
   .vAction {
     margin-top: 12px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     padding: 10px 12px;
     border-radius: 12px;
-    background: rgba(0, 0, 0, .35);
-    border: 1px solid rgba(255, 255, 255, .14);
-    font-weight: 900;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255,255,255,.14);
     font-size: 12px;
-    text-transform: uppercase;
+    font-weight: 900;
   }
 
-  .vAction .dot {
+  .dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background: #25D366;
-    box-shadow: 0 0 0 4px rgba(37, 211, 102, .18);
   }
 
   .vRight {
     width: 60%;
-    min-width: 60%;
     position: relative;
-    background: transparent;
+    background: #000;
   }
 
   .vCar {
@@ -785,7 +726,6 @@ main .row{
   }
 
   .vThumb {
-    position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -794,38 +734,37 @@ main .row{
   .vThumb amp-img {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
   }
 
   .vBadge {
     position: absolute;
-    right: 8px;
     bottom: 0;
+    left: 0;
+    margin: 8px;
+    font-size: 11px;
     padding: 5px 10px;
-    border-radius: 999px;
-    font-weight: 800;
-    font-size: 10px;
+    background: linear-gradient(90deg,#b100ff,#ff2fb2);
     color: #fff;
-    background: linear-gradient(90deg, #b100ff, #ff2fb2);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
+    border-radius: 999px;
+    font-weight: bold;
     text-transform: uppercase;
-    pointer-events: none;
-    margin-bottom: 2px;
   }
 
-  .vLink {
-    display: block;
-    text-decoration: none;
-    color: inherit;
+  .vCar .amp-carousel-button {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    margin: 0;
   }
 
-  @media (max-width: 480px) {
-    .vitrinTitle { font-size: 26px; }
-    .vLeft { width: 44%; min-width: 44%; }
-    .vRight { width: 56%; min-width: 56%; }
-    .vName { font-size: 20px; }
-    .vList { font-size: 13px; }
-    .vBadge { font-size: 9px; padding: 4px 8px; }
+  .vCar .amp-carousel-button-prev {
+    left: 5px;
+  }
+
+  .vCar .amp-carousel-button-next {
+    right: 5px;
   }
 </style>
 
