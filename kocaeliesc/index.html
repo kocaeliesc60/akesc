@@ -77,8 +77,15 @@ Farklı ilçe ve bölgelerde sunulan VIP, yabancı ve elit profil seçenekleri, 
   .vitrin {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0px;
-    padding: 0px;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .vitrin-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
   }
 
   .vitrin-item {
@@ -86,221 +93,653 @@ Farklı ilçe ve bölgelerde sunulan VIP, yabancı ve elit profil seçenekleri, 
     width: 100%;
     aspect-ratio: 3 / 4;
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    border-radius: 0;
+    background: #000;
   }
 
   .slider {
-    display: flex;
-    transition: transform 0.4s ease-in-out;
+    position: relative;
+    width: 100%;
     height: 100%;
   }
 
-  .slider img {
+  .slides {
+    display: flex;
     width: 100%;
-    flex-shrink: 0;
+    height: 100%;
+    transition: transform .35s ease;
+    will-change: transform;
+  }
+
+  .slide {
+    min-width: 100%;
+    height: 100%;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    display: block;
   }
 
   .vitrin-overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 10px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    padding: 12px 12px 18px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0));
     color: white;
     box-sizing: border-box;
+    pointer-events: none;
   }
 
   .vitrin-name {
-    font-weight: bold;
+    font-weight: 900;
     font-size: 15px;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    letter-spacing: .3px;
   }
 
   .vitrin-info {
     font-size: 13px;
-    line-height: 1.4;
+    line-height: 1.2;
   }
 
-  .badge {
-    display: inline-block;
-    margin-top: 6px;
-    padding: 4px 10px;
-    background: linear-gradient(to right, #b100ff, #ff2fb2);
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: bold;
-  }
-
-  .slider-controls button {
+  .nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    border: none;
-    color: white;
-    padding: 6px 10px;
-    font-size: 18px;
-    border-radius: 50%;
-    z-index: 2;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 0;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    font-size: 24px;
+    line-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    z-index: 3;
   }
 
-  .slider-controls button:hover {
-    background: rgba(0,0,0,0.8);
-  }
+  .nav.prev { left: 8px; }
+  .nav.next { right: 8px; }
+  .nav[disabled] { opacity: .2; pointer-events: none; }
 
-  .slider-controls .prev { left: 6px; }
-  .slider-controls .next { right: 6px; }
-
-  .pagination {
+  .dots {
     position: absolute;
-    bottom: 12px;
-    width: 100%;
-    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 3;
   }
 
-  .pagination span {
-    display: inline-block;
+  .dot {
     width: 7px;
     height: 7px;
-    margin: 0 2px;
-    background: rgba(255,255,255,0.4);
-    border-radius: 50%;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.5);
   }
 
-  .pagination .active {
-    background: white;
+  .dot.active {
+    background: #fff;
   }
 
   @media (max-width: 768px) {
-    .vitrin { grid-template-columns: repeat(2, 1fr); }
+    .vitrin {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (max-width: 480px) {
-    .vitrin { grid-template-columns: 1fr; }
+    .vitrin {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 </style>
 
 <div class="vitrin">
-  <!-- İlan 1 -->
-  <a href="https://kocaeliesc.com/kocaeliesc/incele-25322.html" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="vitrin-item" ontouchstart="touchStart(event, 0)" ontouchmove="touchMove(event, 0)" ontouchend="touchEnd(event, 0)">
-      <div class="slider" id="slider0">
-        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-      </div>
-      <div class="slider-controls">
-        <button class="prev" onclick="prevSlide(0); event.stopPropagation();">&#10094;</button>
-        <button class="next" onclick="nextSlide(0); event.stopPropagation();">&#10095;</button>
-      </div>
-      <div class="pagination" id="pagination0"></div>
-      <div class="vitrin-overlay">
-        <div class="vitrin-name">MAYA VE MERYEM</div>
-        <div class="vitrin-info">
-          ❤️ Sevgili Tadında<br>🧍‍♀️ Grup<br>🏠 Kendi Evi<br>📱 İletişim İçin Tıkla<br>
-          <span class="badge">KARTAL</span>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25322.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/b7eecf7006bde93.jpg" alt="VİP ARZU"></div>
         </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">VİP ARZU</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
       </div>
     </div>
   </a>
-
-  <!-- İlan 2 -->
-  <a href="https://kocaeliesc.com/kocaeliesc/incele-55312.html" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="vitrin-item" ontouchstart="touchStart(event, 1)" ontouchmove="touchMove(event, 1)" ontouchend="touchEnd(event, 1)">
-      <div class="slider" id="slider1">
-        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-      </div>
-      <div class="slider-controls">
-        <button class="prev" onclick="prevSlide(1); event.stopPropagation();">&#10094;</button>
-        <button class="next" onclick="nextSlide(1); event.stopPropagation();">&#10095;</button>
-      </div>
-      <div class="pagination" id="pagination1"></div>
-      <div class="vitrin-overlay">
-        <div class="vitrin-name">GAMZE</div>
-        <div class="vitrin-info">
-          ❤️ Sevgili Tadında<br>🔥 Doyumsuz<br>🏨 Otel, Rezidans<br>📱 İletişim İçin Tıkla<br>
-          <span class="badge">ANADOLU YAKASI</span>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-24786.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/4253d8facbb50b5.jpg" alt="VİP BEYZA"></div>
         </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">VİP BEYZA</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
       </div>
     </div>
   </a>
-
-  <!-- İlan 3 -->
-  <a href="https://kocaeliesc.com/kocaeliesc/incele-12901.html" target="_blank" style="text-decoration: none; color: inherit;">
-    <div class="vitrin-item" ontouchstart="touchStart(event, 2)" ontouchmove="touchMove(event, 2)" ontouchend="touchEnd(event, 2)">
-      <div class="slider" id="slider2">
-        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-        <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg">
-      </div>
-      <div class="slider-controls">
-        <button class="prev" onclick="prevSlide(2); event.stopPropagation();">&#10094;</button>
-        <button class="next" onclick="nextSlide(2); event.stopPropagation();">&#10095;</button>
-      </div>
-      <div class="pagination" id="pagination2"></div>
-      <div class="vitrin-overlay">
-        <div class="vitrin-name">TANEM</div>
-        <div class="vitrin-info">
-          ❤️ Sevgili Tadında<br>🔥 Doyumsuz<br>🏠 Kendi Evi<br>📱 İletişim İçin Tıkla<br>
-          <span class="badge">MALTEPE</span>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25365.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/3d84cce1320fbe7.jpg" alt="VİP AJDA"></div>
         </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">VİP AJDA</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25328.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg" alt="PELİN SU"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">PELİN SU</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25554.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/62dc0ea502d1693.jpg" alt="AYLA"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">AYLA</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25212.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/710464fdcdc5471.jpg" alt="TÜRBANLI MİNE"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">TÜRBANLI MİNE</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25327.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/d40da1665c8670e.jpg" alt="Begüm"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">Begüm</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-24556.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/aa411a0521a1823.jpg" alt="İREM VE SERENAY"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">İREM VE SERENAY</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-24663.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/79ea753bd4fa436.jpg" alt="DERYA & NAZ"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">DERYA & NAZ</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25808.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/23d83db1d0a9122.jpg" alt="Duru"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">Duru</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25829.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/9f7da3650e2d819.jpg" alt="ESRA&NAZLI"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">ESRA&NAZLI</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25149.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/73b27b7fdc798cd.jpg" alt="CEMRE"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">CEMRE</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25763.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ed45da46bc276e1.jpg" alt="BAHAR"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">BAHAR</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-23072.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/083776fb907b355.jpg" alt="TUĞÇE"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">TUĞÇE</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25555.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/751a406d4c853b7.jpg" alt="Türbanlı HATİCE"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">Türbanlı HATİCE</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25846.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/8d6f4212730c52a.jpg" alt="BERRE"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">BERRE</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25296.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/034990c69600ecd.jpg" alt="Gizem"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">Gizem</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25195.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/7e99435e8d47a75.jpg" alt="NAZLI"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">NAZLI</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25045.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/177bdc09fcdc923.jpg" alt="MERVE"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">MERVE</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25743.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/8753954847fd507.jpg" alt="HANDE"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">HANDE</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25684.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/67c26ec58a2c479.jpg" alt="JALE"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">JALE</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-22757.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/09d7b329963376c.jpg" alt="SUDE"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">SUDE</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25280.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/6cc576ccda5c0f4.jpg" alt="SERAY"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">SERAY</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-25418.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/6cd022750dd720e.jpg" alt="BUKET"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">BUKET</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
+      </div>
+    </div>
+  </a>
+  <a class="vitrin-link" href="https://kocaeliesc.com/kocaeliesc/incele-22435.html" target="_blank" rel="nofollow">
+    <div class="vitrin-item">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="https://i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/09d443626fda692.jpg" alt="ASLI"></div>
+        </div>
+        <button class="nav prev" type="button" aria-label="Önceki">‹</button>
+        <button class="nav next" type="button" aria-label="Sonraki">›</button>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="vitrin-overlay">
+        <div class="vitrin-name">ASLI</div>
+        <div class="vitrin-info">📱 İlanı Görmek İçin Tıkla</div>
       </div>
     </div>
   </a>
 </div>
 
 <script>
-  const totalSlides = 3;
-  const sliders = [
-    { current: 0, element: document.getElementById('slider0') },
-    { current: 0, element: document.getElementById('slider1') },
-    { current: 0, element: document.getElementById('slider2') }
-  ];
+(function () {
+  function initSlider(slider) {
+    const slidesWrap = slider.querySelector('.slides');
+    const slides = Array.from(slider.querySelectorAll('.slide'));
+    const prevBtn = slider.querySelector('.prev');
+    const nextBtn = slider.querySelector('.next');
+    const dotsWrap = slider.querySelector('.dots');
 
-  sliders.forEach((sliderObj, i) => updatePagination(i));
+    let index = 0;
+    let startX = 0;
+    let currentX = 0;
+    let isDown = false;
 
-  function updatePagination(index) {
-    const pag = document.getElementById(`pagination${index}`);
-    pag.innerHTML = '';
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement('span');
-      if (i === sliders[index].current) dot.classList.add('active');
-      pag.appendChild(dot);
+    // Dots
+    dotsWrap.innerHTML = '';
+    slides.forEach((_, i) => {
+      const d = document.createElement('span');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        go(i);
+      });
+      dotsWrap.appendChild(d);
+    });
+
+    function updateControls() {
+      const multi = slides.length > 1;
+      prevBtn.style.display = multi ? 'flex' : 'none';
+      nextBtn.style.display = multi ? 'flex' : 'none';
+      dotsWrap.style.display = multi ? 'flex' : 'none';
+      prevBtn.disabled = !multi;
+      nextBtn.disabled = !multi;
     }
+
+    function go(i) {
+      if (slides.length === 0) return;
+      index = (i + slides.length) % slides.length;
+      slidesWrap.style.transform = `translateX(-${index * 100}%)`;
+      const dots = dotsWrap.querySelectorAll('.dot');
+      dots.forEach((d, di) => d.classList.toggle('active', di === index));
+    }
+
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      go(index - 1);
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      go(index + 1);
+    });
+
+    // Touch swipe
+    slider.addEventListener('touchstart', (e) => {
+      if (slides.length <= 1) return;
+      startX = e.touches[0].clientX;
+      currentX = startX;
+      isDown = true;
+    }, { passive: true });
+
+    slider.addEventListener('touchmove', (e) => {
+      if (!isDown || slides.length <= 1) return;
+      currentX = e.touches[0].clientX;
+    }, { passive: true });
+
+    slider.addEventListener('touchend', () => {
+      if (!isDown || slides.length <= 1) return;
+      const dx = currentX - startX;
+      const threshold = 40;
+      if (dx > threshold) go(index - 1);
+      else if (dx < -threshold) go(index + 1);
+      isDown = false;
+    });
+
+    // Mouse drag (desktop)
+    slider.addEventListener('mousedown', (e) => {
+      if (slides.length <= 1) return;
+      isDown = true;
+      startX = e.clientX;
+      currentX = startX;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      currentX = e.clientX;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDown || slides.length <= 1) return;
+      const dx = currentX - startX;
+      const threshold = 60;
+      if (dx > threshold) go(index - 1);
+      else if (dx < -threshold) go(index + 1);
+      isDown = false;
+    });
+
+    updateControls();
   }
 
-  function nextSlide(index) {
-    sliders[index].current = (sliders[index].current + 1) % totalSlides;
-    sliders[index].element.style.transform = `translateX(-${sliders[index].current * 100}%)`;
-    updatePagination(index);
-  }
-
-  function prevSlide(index) {
-    sliders[index].current = (sliders[index].current - 1 + totalSlides) % totalSlides;
-    sliders[index].element.style.transform = `translateX(-${sliders[index].current * 100}%)`;
-    updatePagination(index);
-  }
-
-  // Swipe support
-  let startX = 0;
-  function touchStart(e, index) {
-    startX = e.touches[0].clientX;
-  }
-  function touchMove(e, index) {
-    // Optional: preview movement
-  }
-  function touchEnd(e, index) {
-    const dx = e.changedTouches[0].clientX - startX;
-    if (dx > 50) prevSlide(index);
-    else if (dx < -50) nextSlide(index);
-  }
-</script><div class="duo col-12 pt-1 px-1">
+  document.querySelectorAll('.slider').forEach(initSlider);
+})();
+</script>
+<div class="duo col-12 pt-1 px-1">
 <div class="clearfix"></div>
 <main>
 <div class="col-sm-12 mt-2">
@@ -437,218 +876,7 @@ main .row{
 
   </div>
 </a>
-<!-- VİTRİN BAŞLANGICI -->
-<div class="duo col-12 pt-1 px-1 bm">
-<a rel="nofollow" href="incele-25322.html" target="_blank" title="Kocaeli İzmit VIP Profil">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/b7eecf7006bde93.jpg" layout="fill" alt="BİREYSEL İKİ ARKADAŞ"></amp-img>
-<div class="patronice-content">
-<amp-fit-text layout="fill" max-font-size="13"> VİP ARZU </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-24786.html" target="_blank" title=" 3 Arkadaş ">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/4253d8facbb50b5.jpg" layout="fill" alt=" 3 Arkadaş "></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> VİP BEYZA </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25365.html" target="_blank" title="Orjinal Moldovyalı escort">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/3d84cce1320fbe7.jpg" layout="fill" alt="Orjinal Moldovyalı escort"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> VİP AJDA </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25328.html" target="_blank" title="PELİNSU">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ff618e20fc3d25f.jpg" layout="fill" alt="PELİNSU"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> PELİN SU </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25554.html" target="_blank" title="VİCTORİA">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/62dc0ea502d1693.jpg" layout="fill" alt="VİCTORİA"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> AYLA </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1 bm">
-<a rel="nofollow" href="incele-25212.html" target="_blank" title="TÜRBANLI ESCORT MİNE">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/710464fdcdc5471.jpg" layout="fill" alt="TÜRBANLI ESCORT MİNE"></amp-img>
-<div class="patronice-content">
-<amp-fit-text layout="fill" max-font-size="13"> TÜRBANLI MİNE </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25327.html" target="_blank" title="Üniversiteli Vip Begüm">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/d40da1665c8670e.jpg" layout="fill" alt="Üniversiteli Vip Begüm"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> Begüm </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-24556.html" target="_blank" title="İrem Ve Arkadaşları">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/aa411a0521a1823.jpg" layout="fill" alt="İrem Ve Arkadaşları"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> İREM VE SERENAY  </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-24663.html" target="_blank" title="DERYA & NAZ">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/79ea753bd4fa436.jpg" layout="fill" alt="DERYA & NAZ"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> DERYA & NAZ </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25808.html" target="_blank" title="Duru">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/23d83db1d0a9122.jpg" layout="fill" alt="Duru"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> Duru </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1 bm">
-<a rel="nofollow" href="incele-25829.html" target="_blank" title="ESRA&NAZLI">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/9f7da3650e2d819.jpg" layout="fill" alt="ESRA&NAZLI"></amp-img>
-<div class="patronice-content">
-<amp-fit-text layout="fill" max-font-size="13"> ESRA&NAZLI </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25149.html" target="_blank" title="Süper Üçlü">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/73b27b7fdc798cd.jpg" layout="fill" alt="Süper Üçlü"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> CEMRE </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25763.html" target="_blank" title="Bireysel Türk lokumu">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/ed45da46bc276e1.jpg" layout="fill" alt="Bireysel Türk lokumu"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> BAHAR </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-23072.html" target="_blank" title="TÜRK ÖĞRENCİ BİREYSEL ESC">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/083776fb907b355.jpg" layout="fill" alt="TÜRK ÖĞRENCİ BİREYSEL ESC"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> TUĞÇE </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25555.html" target="_blank" title="Türbanlı Bireysel Demet">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/751a406d4c853b7.jpg" layout="fill" alt="Türbanlı Bireysel Demet"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> Türbanlı HATİCE </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1 bm">
-<a rel="nofollow" href="incele-25846.html" target="_blank" title="Veronika&Rossi">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/8d6f4212730c52a.jpg" layout="fill" alt="Veronika&Rossi"></amp-img>
-<div class="patronice-content">
-<amp-fit-text layout="fill" max-font-size="13"> BERRE </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25296.html" target="_blank" title="Gizem">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/034990c69600ecd.jpg" layout="fill" alt="Gizem"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> Gizem </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25195.html" target="_blank" title="ÖĞRENCİ NAZLI BİREYSEL">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/7e99435e8d47a75.jpg" layout="fill" alt="ÖĞRENCİ NAZLI BİREYSEL"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> NAZLI </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25045.html" target="_blank" title="MERVE TÜRK">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/177bdc09fcdc923.jpg" layout="fill" alt="MERVE TÜRK"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> MERVE </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25743.html" target="_blank" title="SEVGİLİ TADINDA SINIRSIZ">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/8753954847fd507.jpg" layout="fill" alt="SEVGİLİ TADINDA SINIRSIZ"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> HANDE </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1 bm">
-<a rel="nofollow" href="incele-25684.html" target="_blank" title="JENEFFİR">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/67c26ec58a2c479.jpg" layout="fill" alt="JENEFFİR"></amp-img>
-<div class="patronice-content">
-<amp-fit-text layout="fill" max-font-size="13"> JALE </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-22757.html" target="_blank" title="Sasha ">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/09d7b329963376c.jpg" layout="fill" alt="Sasha "></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> SUDE </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25280.html" target="_blank" title="SERAY">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/6cc576ccda5c0f4.jpg" layout="fill" alt="SERAY"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> SERAY </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-25418.html" target="_blank" title="TÜRK BUKET">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/6cd022750dd720e.jpg" layout="fill" alt="TÜRK BUKET"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> BUKET </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 pt-1 px-1">
-<a rel="nofollow" href="incele-22435.html" target="_blank" title="AHU">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/wp-content/uploads/vitrin/09d443626fda692.jpg" layout="fill" alt="AHU"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11"> ASLI </amp-fit-text>
-</div></div>
-</a></div>
-<div class="duo col-12 bm">
-<a rel="nofollow" href="https://api.whatsapp.com/send/?phone=905071209941&amp;text=sakarya-kocaeli+ve+anadolu+bolgesine+ilan+vermek+istiyorum" target="_blank" title="BOŞ YER">
-<div class="duo-image-box">
-<amp-img class="duo-image" src="../i0.wp.com/harunyakar94.store/resimler/1805-45957.jpg" layout="fill" alt="BOŞ"></amp-img>
-<div class="duo-content">
-<amp-fit-text layout="fill" max-font-size="11">
-</amp-fit-text>
-</div></div>
-</a></div>
 
-<!-- VİTRİN BİTİŞİ -->
 
 
 
