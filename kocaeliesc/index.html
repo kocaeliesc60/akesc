@@ -413,207 +413,127 @@ main .row{
 
   </div>
 </a>
-<style amp-custom>
-  .vipWrap {
-    padding: 0;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .vipTitle {
-    text-align: center;
-    font-size: 32px;
-    padding: 12px;
-    background: #111;
-    color: gold;
-    font-weight: 900;
-    letter-spacing: 1.4px;
-    text-shadow: 0 2px 0 rgba(0, 0, 0, .8);
-    border-bottom: 2px solid #444;
-    text-transform: uppercase;
-  }
-
-  .vipRow {
-    display: flex;
-    width: 100%;
-    gap: 6px;
-    padding: 10px 0;
-  }
-
-  .vipLeft {
-    width: 36%;
-    background: linear-gradient(to bottom right, #e70068, #e70068c7);
-    color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 14px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.4);
-  }
-
-  .vipName {
-    font-size: 18px;
-    font-weight: 900;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-  }
-
-  .vipList {
-    list-style: none;
-    padding: 0;
+<style>
+  body {
+    background: #2e2001;
     margin: 0;
+    font-family: Arial, sans-serif;
   }
 
-  .vipList li {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  .vitrin {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .vitrin-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .vitrin-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .vitrin-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    color: white;
+    box-sizing: border-box;
+  }
+
+  .vitrin-name {
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
     margin-bottom: 5px;
   }
 
-  .vipIcon {
-    width: 18px;
+  .vitrin-info {
+    font-size: 13px;
+    line-height: 1.4;
   }
 
-  .vipWapp {
+  .badge {
     display: inline-block;
-    margin-top: 10px;
-    padding: 6px 10px;
-    background: rgba(0, 0, 0, .4);
-    border-radius: 8px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid #fff3;
-    font-size: 12px;
-    text-transform: uppercase;
-  }
-
-  .vipRight {
-    width: 64%;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    gap: 2px;
-  }
-
-  .vipImgBox {
-    flex: 1;
-    height: auto;
-    min-height: 120px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .vipImgBox amp-img {
-    object-fit: cover;
-  }
-
-  .vipBadge {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    background: linear-gradient(90deg, #b100ff, #ff2fb2);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 6px 10px;
+    margin-top: 6px;
+    padding: 4px 10px;
+    background: linear-gradient(to right, #b100ff, #ff2fb2);
     border-radius: 999px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, .4);
-    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .vitrin {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .vitrin {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 </style>
 
-<section class="vipWrap">
-  <div class="vipTitle">VIP VİTRİN</div>
-
-  <!-- Vitrin 1 -->
-  <div class="vipRow">
-    <div class="vipLeft">
-      <div class="vipName">Maya ve Meryem</div>
-      <ul class="vipList">
-        <li><span class="vipIcon">❤</span> Sevgili Tadında</li>
-        <li><span class="vipIcon">👯‍♀️</span> Grup</li>
-        <li><span class="vipIcon">🏠</span> Kendi Evi</li>
-        <li><span class="vipIcon">📱</span> İletişim İçin Tıkla</li>
-      </ul>
-      <div class="vipWapp">
-        <span style="width:10px;height:10px;border-radius:50%;background:#25D366;box-shadow:0 0 0 3px rgba(37,211,102,.18);"></span> WhatsApp
+<div class="vitrin">
+  <!-- 1 -->
+  <div class="vitrin-item">
+    <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" alt="Maya ve Meryem">
+    <div class="vitrin-overlay">
+      <div class="vitrin-name">MAYA VE MERYEM</div>
+      <div class="vitrin-info">
+        ❤️ Sevgili Tadında<br>
+        🧍‍♀️ Grup<br>
+        🏠 Kendi Evi<br>
+        📱 İletişim İçin Tıkla<br>
+        <span class="badge">KARTAL</span>
       </div>
-    </div>
-    <div class="vipRight">
-      <div class="vipImgBox">
-        <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" width="400" height="400" layout="responsive"></amp-img>
-      </div>
-      <div class="vipImgBox">
-        <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" width="400" height="400" layout="responsive"></amp-img>
-      </div>
-      <div class="vipImgBox">
-        <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" width="400" height="400" layout="responsive"></amp-img>
-      </div>
-      <div class="vipBadge">Kartal</div>
     </div>
   </div>
 
-  <!-- Vitrin 2 -->
-  <div class="vipRow">
-    <div class="vipLeft">
-      <div class="vipName">Gamze</div>
-      <ul class="vipList">
-        <li><span class="vipIcon">❤</span> Sevgili Tadında</li>
-        <li><span class="vipIcon">🔥</span> Doyumsuz</li>
-        <li><span class="vipIcon">🚗</span> Ev, Otel, Rezidans</li>
-        <li><span class="vipIcon">📱</span> İletişim İçin Tıkla</li>
-      </ul>
-      <div class="vipWapp">
-        <span style="width:10px;height:10px;border-radius:50%;background:#25D366;box-shadow:0 0 0 3px rgba(37,211,102,.18);"></span> WhatsApp
+  <!-- 2 -->
+  <div class="vitrin-item">
+    <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" alt="Gamze">
+    <div class="vitrin-overlay">
+      <div class="vitrin-name">GAMZE</div>
+      <div class="vitrin-info">
+        ❤️ Sevgili Tadında<br>
+        🔥 Doyumsuz<br>
+        🚗 Ev, Otel, Rezidans<br>
+        📱 İletişim İçin Tıkla<br>
+        <span class="badge">ANADOLU YAKASI</span>
       </div>
-    </div>
-    <div class="vipRight">
-      <div class="vipImgBox">
-        <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" width="400" height="400" layout="responsive"></amp-img>
-      </div>
-      <div class="vipImgBox">
-        <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" width="400" height="400" layout="responsive"></amp-img>
-      </div>
-      <div class="vipImgBox">
-        <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" width="400" height="400" layout="responsive"></amp-img>
-      </div>
-      <div class="vipBadge">Anadolu Yakası</div>
     </div>
   </div>
 
-  <!-- Vitrin 3 -->
-  <div class="vipRow">
-    <div class="vipLeft">
-      <div class="vipName">Tanem</div>
-      <ul class="vipList">
-        <li><span class="vipIcon">❤</span> Sevgili Tadında</li>
-        <li><span class="vipIcon">💋</span> Doyumsuz</li>
-        <li><span class="vipIcon">🏠</span> Kendi Evi</li>
-        <li><span class="vipIcon">📱</span> İletişim İçin Tıkla</li>
-      </ul>
-      <div class="vipWapp">
-        <span style="width:10px;height:10px;border-radius:50%;background:#25D366;box-shadow:0 0 0 3px rgba(37,211,102,.18);"></span> WhatsApp
+  <!-- 3 -->
+  <div class="vitrin-item">
+    <img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" alt="Tanem">
+    <div class="vitrin-overlay">
+      <div class="vitrin-name">TANEM</div>
+      <div class="vitrin-info">
+        ❤️ Sevgili Tadında<br>
+        🔥 Doyumsuz<br>
+        🏠 Kendi Evi<br>
+        📱 İletişim İçin Tıkla<br>
+        <span class="badge">MALTEPE</span>
       </div>
-    </div>
-    <div class="vipRight">
-      <div class="vipImgBox">
-        <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" width="400" height="400" layout="responsive"></amp-img>
-      </div>
-      <div class="vipImgBox">
-        <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" width="400" height="400" layout="responsive"></amp-img>
-      </div>
-      <div class="vipImgBox">
-        <amp-img src="/i3.wp.com/harunyakar94.store/resimler/15728-12903.jpg" width="400" height="400" layout="responsive"></amp-img>
-      </div>
-      <div class="vipBadge">Maltepe</div>
     </div>
   </div>
-</section>
+</div>
 
 
 
