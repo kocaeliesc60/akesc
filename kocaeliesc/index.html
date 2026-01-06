@@ -1789,6 +1789,10 @@ uzaklaşmadan yenilenme imkânı bulabilirsin.
   </div>
 </a>
 <style amp-custom>
+  *{
+    box-sizing: border-box;
+  }
+
   body{
     font-family: Arial, Helvetica, sans-serif;
     background:#ffffff;
@@ -1800,7 +1804,9 @@ uzaklaşmadan yenilenme imkânı bulabilirsin.
 
   .page-wrap{
     max-width:800px;
+    width:100%;
     margin:0 auto;
+    padding:0 12px;   /* içten boşluk, mobilde kenara yapışmasın */
   }
 
   /* Başlık */
@@ -1830,7 +1836,24 @@ uzaklaşmadan yenilenme imkânı bulabilirsin.
     color:#c60000;
     font-weight:700;
   }
+
+  /* MOBİL AYARLAR (480px ve altı) */
+  @media (max-width:480px){
+    body{
+      padding:8px;
+    }
+    .page-wrap{
+      padding:0 8px;
+    }
+    .red-title{
+      font-size:22px;
+    }
+    .content p{
+      font-size:14px;
+    }
+  }
 </style>
+
 
 <div class="page-wrap">
   <h1 class="red-title">Başiskele Escort Bayanlar</h1>
